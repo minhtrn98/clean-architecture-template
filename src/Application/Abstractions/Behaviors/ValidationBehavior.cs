@@ -27,7 +27,7 @@ internal sealed class ValidationBehavior<TRequest, TResponse>(IValidator<TReques
 
         ValidationError errors = CreateValidationError([.. validationResult.Errors]);
 
-        var result = (TResponse)Activator.CreateInstance(typeof(TResponse), null, false, errors)!;
+        var result = (TResponse)Activator.CreateInstance(typeof(TResponse), false, errors)!;
 
         return result;
     }

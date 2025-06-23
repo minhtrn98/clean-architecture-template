@@ -43,6 +43,12 @@ public class Result<TValue> : Result
         _value = value;
     }
 
+    public Result(bool isSuccess, Error error)
+        : base(isSuccess, error)
+    {
+        _value = default;
+    }
+
     [NotNull]
     public TValue Value => IsSuccess
         ? _value!
